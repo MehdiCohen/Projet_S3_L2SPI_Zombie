@@ -171,24 +171,47 @@ void afficher_carte(int mat[N][N]){
 					compteurR ++;
 					compteurtotal++;
 					mat[i][j] = 3;
-					for(m = 1, n = 1; compteurCase<3 ;m++,n++){
+					while(compteurCase<3){
+						if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+							mat[i+m][j] = 3;
+							compteurCase++;
+							m++;
+						}
+						else if(mat[i-m][j] == 0 || mat[i-m][j] == 2){
+							mat[i-m][j] = 3;
+							compteurCase++;
+							m--;
+						}
+						else if(mat[i][j+n] == 0 || mat[i][j+n] == 2){
+							mat[i][j+n] = 3;
+							compteurCase++;
+							n++;
+						}
+						else if(mat[i][j-n] == 0 || mat[i][j-n] == 2){
+							mat[i][j-n] = 3;	
+							compteurCase++;
+							n--;
+						}
+					}
+					
+					/*for(m = 1, n = 1; compteurCase<3 ;m++,n++){
 						if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
 							mat[i+m][j] = 3;
 							compteurCase++;
 						}
-						else if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+						else if(mat[i-m][j] == 0 || mat[i-m][j] == 2){
 							mat[i-m][j] = 3;
 							compteurCase++;
 						}
-						else if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+						else if(mat[i][j+n] == 0 || mat[i][j+n] == 2){
 							mat[i][j+n] = 3;
 							compteurCase++;
 						}
-						else if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+						else if(mat[i][j-n] == 0 || mat[i][j-n] == 2){
 							mat[i][j-n] = 3;	
 							compteurCase++;
 						}
-					}
+					}*/
 					printf("%c  ",batiment);
 					
 				}
@@ -263,14 +286,12 @@ void test_affichage(int mat[N][N]){
 	char rien = '.';
 	char route = 'X';
 	
-	
-	
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++){
 			if(mat[i][j] == 0)
 				printf("%c  ",rien);
 			if(mat[i][j] == 1)
-				printf("%c  ",route);
+				printf("%c%c ",route, route);
 			if(mat[i][j] == 2)
 				printf("%c  ",maison);
 			if(mat[i][j] == 3)
