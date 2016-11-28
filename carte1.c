@@ -141,6 +141,7 @@ void afficher_carte(int mat[N][N]){
 	int compteurC = 0; //compteur de champs
 	int compteurG = 0; //compteur de garages
 	int compteurtotal;
+	int compteurCase = 0;
 
 	char route = 'X';
 	char reste = '.';
@@ -149,6 +150,8 @@ void afficher_carte(int mat[N][N]){
 
 	int i;
 	int j;
+	int m; // Incrementation boucle
+	int n; // Incrementation boucle
 	for(i=0;i<N;i++){
 		compteurtotal = 0;
 		for(j=0;j<N;j++){
@@ -167,8 +170,26 @@ void afficher_carte(int mat[N][N]){
 				if((batiment == 'R') && (compteurR == 0) && (compteurtotal == 0)){
 					compteurR ++;
 					compteurtotal++;
-					printf("%c  ",batiment);
 					mat[i][j] = 3;
+					for(m = 1, n = 1; compteurCase<3 ;m++,n++){
+						if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+							mat[i+m][j] = 3;
+							compteurCase++;
+						}
+						else if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+							mat[i-m][j] = 3;
+							compteurCase++;
+						}
+						else if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+							mat[i][j+n] = 3;
+							compteurCase++;
+						}
+						else if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
+							mat[i][j-n] = 3;	
+							compteurCase++;
+						}
+					}
+					printf("%c  ",batiment);
 					
 				}
 				else if((batiment == '+') && (compteurClinique == 0) && (compteurtotal == 0)){
@@ -210,6 +231,7 @@ void afficher_carte(int mat[N][N]){
 			
 				else if(batiment == '.'){
 					printf("%c  ",batiment);
+					mat[i][j] = 0;
 				}
 				else{
 					printf("%c  ",maison);	
@@ -227,7 +249,47 @@ void afficher_carte(int mat[N][N]){
 	}
 	
 }
-
+void test_affichage(int mat[N][N]){
+	int i;
+	int j;
+	
+	char maison = 'M'; // taille 1
+	char restaurant = 'R'; // taille 4
+	char clinique = '+'; // taille 4
+	char usine = 'U'; //taille 6
+	char epicerie = 'E'; //taille 2
+	char champs = 'C'; // taille 4 ou 6
+	char garage = 'G'; // taille 4
+	char rien = '.';
+	char route = 'X';
+	
+	
+	
+	for(i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			if(mat[i][j] == 0)
+				printf("%c  ",rien);
+			if(mat[i][j] == 1)
+				printf("%c  ",route);
+			if(mat[i][j] == 2)
+				printf("%c  ",maison);
+			if(mat[i][j] == 3)
+				printf("%c  ",restaurant);
+			if(mat[i][j] == 4)
+				printf("%c  ",clinique);
+			if(mat[i][j] == 5)
+				printf("%c  ",usine);
+			if(mat[i][j] == 6)
+				printf("%c  ",epicerie);
+			if(mat[i][j] == 7)
+				printf("%c  ",champs);
+			if(mat[i][j] == 8)
+				printf("%c  ",garage);
+		}
+		Ligne();
+		Ligne();
+	}
+}
 
 
 void main2(){
@@ -239,6 +301,11 @@ void main2(){
 
 	voisin_route(mat);
 	afficher_carte(mat);
+	Ligne();
+	Ligne();
+	Ligne();
+	Ligne();
+	test_affichage(mat);
 }
 
 
