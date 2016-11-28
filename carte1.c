@@ -167,44 +167,44 @@ void afficher_carte(int mat[N][N]){
 				if((batiment == 'R') && (compteurR == 0) && (compteurtotal == 0)){
 					compteurR ++;
 					compteurtotal++;
-					//printf("%c  ",batiment);
+					printf("%c  ",batiment);
 					mat[i][j] = 3;
-					printf("%i  ", mat[i][j]);
+					
 				}
 				else if((batiment == '+') && (compteurClinique == 0) && (compteurtotal == 0)){
 					compteurClinique ++;
 					compteurtotal++;
-					//printf("%c  ",batiment);
+					printf("%c  ",batiment);
 					mat[i][j] = 4;
-					printf("%i  ", mat[i][j]);
+					
 				} 
 				else if((batiment == 'U') && (compteurU == 0) && (compteurtotal == 0)){
 					compteurU ++;
 					compteurtotal++;
-					//printf("%c  ",batiment);
+					printf("%c  ",batiment);
 					mat[i][j] = 5;
-					printf("%i  ", mat[i][j]);
+					
 				}
 				else if((batiment == 'E') && (compteurE == 0) && (compteurtotal == 0)){
 					compteurE ++;
 					compteurtotal++;	
-					//printf("%c  ",batiment);
+					printf("%c  ",batiment);
 					mat[i][j] = 6;
-					printf("%i  ", mat[i][j]);
+					
 				}
 				else if((batiment == 'C') && (compteurC == 0) && (compteurtotal == 0)){
 					compteurC ++;
 					compteurtotal++;
-					//printf("%c  ",batiment);
+					printf("%c  ",batiment);
 					mat[i][j] = 7;
-					printf("%i  ", mat[i][j]);
+					
 				}
 				else if((batiment == 'G') && (compteurG == 0) && (compteurtotal == 0)){
 					compteurG ++;
 					compteurtotal++;
-					//printf("%c  ",batiment);
+					printf("%c  ",batiment);
 					mat[i][j] = 8;
-					printf("%i  ", mat[i][j]);
+					
 				}
 				
 			
