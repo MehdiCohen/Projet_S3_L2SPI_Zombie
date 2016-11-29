@@ -193,7 +193,7 @@ void afficher_carte(int mat[N][N]){
 							n--;
 						}
 					}
-					
+					compteurCase=0;
 					/*for(m = 1, n = 1; compteurCase<3 ;m++,n++){
 						if(mat[i+m][j] == 0 || mat[i+m][j] == 2){
 							mat[i+m][j] = 3;
