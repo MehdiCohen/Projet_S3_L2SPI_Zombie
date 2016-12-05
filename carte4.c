@@ -1,14 +1,15 @@
-#include "Outil.h"
+#include "Outilcpy.h"
 #include "CreaCarte.h"
-#define N 11
 
+int mat[T][T];
+int carte[T][T];
 
-void creer_route4(int mat[N][N]){
+void creerRoute4()
+{
+//Creation des routes
 	int i;
 	int j;
-	char test = 'X';
-	char centre = '.';
-	
+
 
 //routes verticales de gauche à droite
 
@@ -56,15 +57,13 @@ void creer_route4(int mat[N][N]){
 	}
 }
 
-void carte4(){
-	int mat[N][N];
-	srand(time(NULL));
-	initialisation_mat(mat);
+void carte4()
+{
+	initialisation(mat);
+	initialisation(carte);
 
-	creer_route4(mat);
+	creerRoute4();
 
-	voisin_route(mat);
-	Placement_Batiment(mat);
-	
-	affichage_carte(mat);
+	voisinRoute();
+	placerBatiment();
 }

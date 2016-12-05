@@ -1,21 +1,40 @@
-#define N 11
+#include "Outilcpy.h"
+#include "bibliotheque.h"
 
-void initialisation_mat(int mat[N][N]);
-char bati_alea();
-void voisin_route(int mat[N][N]);
-void Placement_Batiment(int mat[N][N]);
-void affichage_carte(int mat[N][N]);
+void initialisation(int mat[T][T]);
+char batiAlea();
+void voisinRoute();
+void placerBatiment();
+void afficherCarte();
 
 void carte1();
-void creer_route1(int mat[N][N]);
+void creerRoute1();
 
 void carte2();
-void creer_route2(int mat[N][N]);
+void creerRoute2();
 
 void carte3();
-void creer_route3(int mat[N][N]);
+void creerRoute3();
 
 void carte4();
-void creer_route4(int mat[N][N]);
+void creerRoute4();
+
+void carte5();
+void creerRoute5();
+
+void carte6();
+void creerRoute6();
+
+void carte7();
+void creerRoute7();
+
+void carte8();
+void creerRoute8();
+
+void carte9();
+void creerRoute9();
+
+void carte10();
+void creerRoute10();
 
 void choixCarte();
